@@ -1,3 +1,3 @@
-# robot
-Python
-I love　Python
+# 確率ロボティクス
+確率ロボティクスに書いてあることをコーディングする修行
+~Python縛り~
