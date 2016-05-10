@@ -1,0 +1,1142 @@
+<td>小川</td>
+False
+<td>6</td>
+False
+<td>101</td>
+False
+<td>26</td>
+False
+<td>21</td>
+False
+<td>5</td>
+False
+<td>0</td>
+False
+<td>6</td>
+False
+<td>5</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>2</td>
+False
+<td>2</td>
+False
+<td>松岡</td>
+False
+<td>1</td>
+False
+<td>15</td>
+False
+<td>3</td>
+False
+<td>3</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>ルーキ</td>
+False
+<td>1</td>
+False
+<td>17</td>
+False
+<td>4</td>
+False
+<td>3</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>合計</td>
+False
+<td>8</td>
+False
+<td>133</td>
+False
+<td>33</td>
+False
+<td>27</td>
+False
+<td>6</td>
+False
+<td>0</td>
+False
+<td>8</td>
+False
+<td>6</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>2</td>
+False
+<td>2</td>
+False
+<td>1</td>
+False
+<td>(中)</td>
+False
+<td>比屋根</td>
+False
+<td>5</td>
+False
+<td>3</td>
+False
+<td>0</td>
+False
+<td class="hit">中安</td>
+False
+<td class="">-</td>
+False
+<td class="">二ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="hit">左安</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="hit">左安</td>
+False
+<td class="">三振</td>
+False
+<td>2</td>
+False
+<td>(三)</td>
+False
+<td>川端</td>
+False
+<td>4</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td class="">二ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="hit">遊安</td>
+False
+<td class="">-</td>
+False
+<td class="">左飛</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td>3</td>
+False
+<td>(二)</td>
+False
+<td>山田</td>
+False
+<td>4</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td class="hit">遊安</td>
+False
+<td class="">-</td>
+False
+<td class="">三ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="">二飛</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="hit">左安</td>
+False
+<td class="">-</td>
+False
+<td>4</td>
+False
+<td>(左)</td>
+False
+<td>バレンティン</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="dead4">四球</td>
+False
+<td class="">-</td>
+False
+<td class="dead4">四球</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td>5</td>
+False
+<td>(右)</td>
+False
+<td>飯原</td>
+False
+<td>3</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">一邪</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">中飛</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>右</td>
+False
+<td>雄平</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">一ゴ</td>
+False
+<td class="">-</td>
+False
+<td>6</td>
+False
+<td>(一)</td>
+False
+<td>荒木</td>
+False
+<td>4</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">中飛</td>
+False
+<td class="">-</td>
+False
+<td class="">遊ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td>7</td>
+False
+<td>(遊)</td>
+False
+<td>西浦</td>
+False
+<td>3</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>打</td>
+False
+<td>坂口</td>
+False
+<td>1</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="hit">投安</td>
+False
+<td>8</td>
+False
+<td>(捕)</td>
+False
+<td>中村</td>
+False
+<td>4</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">遊ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">遊飛</td>
+False
+<td class="">-</td>
+False
+<td class="">二邪</td>
+False
+<td>9</td>
+False
+<td>(投)</td>
+False
+<td>小川</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>打</td>
+False
+<td>田中浩</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">二ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>投</td>
+False
+<td>松岡</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>投</td>
+False
+<td>ルーキ</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>打</td>
+False
+<td>今浪</td>
+False
+<td>1</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="hit">中安</td>
+False
+<td></td>
+False
+<td>打</td>
+False
+<td>大引</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td></td>
+False
+<td>合計</td>
+False
+<td>35</td>
+False
+<td>8</td>
+False
+<td>0</td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td>岩貞</td>
+False
+<td>7</td>
+False
+<td>119</td>
+False
+<td>27</td>
+False
+<td>25</td>
+False
+<td>4</td>
+False
+<td>0</td>
+False
+<td>9</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>ドリス</td>
+False
+<td>1</td>
+False
+<td>14</td>
+False
+<td>5</td>
+False
+<td>5</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>マテオ</td>
+False
+<td>1</td>
+False
+<td>18</td>
+False
+<td>5</td>
+False
+<td>5</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>合計</td>
+False
+<td>9</td>
+False
+<td>151</td>
+False
+<td>37</td>
+False
+<td>35</td>
+False
+<td>8</td>
+False
+<td>0</td>
+False
+<td>13</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>1</td>
+False
+<td>(左)</td>
+False
+<td>高山</td>
+False
+<td>3</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td class="hit">左安</td>
+False
+<td class="dead4">四球</td>
+False
+<td class="">-</td>
+False
+<td class="">二ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td>2</td>
+False
+<td>(二)</td>
+False
+<td>大和</td>
+False
+<td>4</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td class="">二飛</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="hit">右安</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">遊ゴ</td>
+False
+<td class="">-</td>
+False
+<td>3</td>
+False
+<td>(遊)</td>
+False
+<td>鳥谷</td>
+False
+<td>4</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td class="hit">左安</td>
+False
+<td class="">-</td>
+False
+<td class="">三ゴ</td>
+False
+<td class="">終了</td>
+False
+<td class="">中飛</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">一ゴ</td>
+False
+<td>4</td>
+False
+<td>(一)</td>
+False
+<td>ゴメス</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="dead4">四球</td>
+False
+<td class="">-</td>
+False
+<td class="dead4">四球</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="dead4">四球</td>
+False
+<td>5</td>
+False
+<td>(右)</td>
+False
+<td>板山</td>
+False
+<td>3</td>
+False
+<td>2</td>
+False
+<td>2</td>
+False
+<td class="hit rbi">右安</td>
+False
+<td class="">-</td>
+False
+<td class="dead4">四球</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="hit">左安</td>
+False
+<td>6</td>
+False
+<td>(三)</td>
+False
+<td>陽川</td>
+False
+<td>3</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">二ゴ</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三邪</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>三</td>
+False
+<td>今成</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三併</td>
+False
+<td>7</td>
+False
+<td>(捕)</td>
+False
+<td>原口</td>
+False
+<td>3</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td class="">右飛</td>
+False
+<td class="">-</td>
+False
+<td class="hit">左安</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">一飛</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td>8</td>
+False
+<td>(中)</td>
+False
+<td>江越</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">三飛</td>
+False
+<td class="">中飛</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="dead4">四球</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td>9</td>
+False
+<td>(投)</td>
+False
+<td>岩貞</td>
+False
+<td>2</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td class="">終了</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>打 </td>
+False
+<td>新井</td>
+False
+<td>1</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">三振</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>投</td>
+False
+<td>ドリス</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td>投</td>
+False
+<td>マテオ</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td>0</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td class="">-</td>
+False
+<td></td>
+False
+<td></td>
+False
+<td>合計</td>
+False
+<td>27</td>
+False
+<td>6</td>
+False
+<td>2</td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
+<td> </td>
+False
