@@ -2,7 +2,7 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
-
+import seaborn
 def main():
 
     sigmas = 1
@@ -10,6 +10,7 @@ def main():
     x = np.arange(-5., 5., 0.001)
     y = (1./np.sqrt(2*np.pi*sigmas)) * np.exp(-(x - myus)**2/2/sigmas)
     plt.plot(x, y)
+    plt.title("Gaus", size='20')
     plt.show()
 
 if __name__ =="__main__":
