@@ -2,137 +2,158 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 import seaborn
 from numpy import linalg as la
+import math
 
 def L_dist(x,L):
     return np.sqrt( (x[0]-L[0])**2 + (x[1]-L[1])**2 )
 def L_deg(x,L):
     return np.degrees(np.arctan2((x[1]-L[1]),(x[0]-L[0])))
-
+def z_pos(x,z):
+    return x[0]+z[0]*np.cos(np.radians(x[2]-z[1])), x[1]+z[0]*np.sin(np.radians(x[2]-z[1]))
+def reverse(X):
+    D = np.array([[X[1][1], -X[0][1]],
+                 [-X[1][0], -X[0][0]]])
+    return (1/(X[0][0]*X[1][1]))*D
 
 def main():
-    x = np.mat([ [0],[0],[0], [0],[0]])#初期位置&ランドマーク観測位置
-    X = [x]
-    U = []
-    J = []
-    Z = []
+    x = np.array([[0],[0],[0]])#状態(x,y,deg)
+    L = np.array([[0],[10]])#ランドマーク位置(x,y)
+    z = np.array([[0.],[0.]])#ランドマーク観測値(r,deg)
 
-    L = np.mat([ [0],[2.5]])#ランドマーク位置
-
-    v = 5
-    w = 2
-    if w == 0:
-        r = float(v)
-        w=0.1
-    else:
-        r = float(v)/w
-
-
+    v = 20#速度
+    w = 2#角速度
+    r = v/w
+    T = 50#観測数
     time = 0
-    T = 400#観測数
+    #各種パラメータ保存リスト
+    Ob = [x]
+    X  = [x]
+    U  = []
+    Z  = []
+    Z2 = []
+    J  = []
 
-    #航行データ作成
+    R = np.array([[0.01,0,0],[0,0.01,0],[0,0,0] ])#制御誤差
+    o = x
+    Q = np.array([[0.1,0.],[0.,0.1]])#制御誤差
+
+
+    #観測値取得
     for i in range(T):
-        l_dist =  L_dist(x,L)
-        l_deg  = L_deg(x,L)
-        if l_deg < -360:
-            l_deg = L_deg(x,L)+360
-        elif l_deg >360:
-            l_deg = L_deg(x,L)-360
+        time += 0.1
+        #状態X
+        u = np.array([[-1*r*np.sin(math.radians(x[2]))+ r*math.sin(np.radians(x[2] + time*w))],
+                [r*np.cos(math.radians(x[2]))- r*np.cos(math.radians(x[2] + time*w))],
+                [time*w]
+                ])
+        j = np.mat([[0,0,-1*r*np.cos(np.radians(x[2]))+ r*np.cos(np.radians(x[2] + time*w))],
+                    [0,0,-1*r*np.sin(np.radians(x[2]))- r*np.sin(np.radians(x[2] + time*w))],
+                    [0,0,0]])
 
-        x[3] = l_dist
-        x[4] = l_deg-x[2]
-        z = np.mat([ [0.0],[0.0] ])#初期位置&ランドマーク観測位置
-        z[0] = l_dist
-        z[1] = l_deg
-
-#        print l_deg
-#        print z
-
-        u = np.mat([[-1*r*math.sin(math.radians(x[2]))+ r*math.sin(math.radians(x[2] + time*w))],
-                        [r*math.cos(math.radians(x[2]))- r*math.cos(math.radians(x[2] + time*w))],
-                        [time*w],
-                        [0],
-                        [0]])
-        j = np.mat([[1,0,-1*r*math.cos(math.radians(x[2]))+ r*math.cos(math.radians(x[2] + time*w)),0,0],
-                    [0,1,-1*r*math.sin(math.radians(x[2]))- r*math.sin(math.radians(x[2] + time*w)),0,0],
-                    [0,0,1,0,0],
-                    [0,0,0,1,0],
-                    [0,0,0,0,1]
-                    ])
-
-        x = x + u
+        x = x + u + np.random.multivariate_normal([0,0,0], R, 1).T
+        o = o + u
         if x[2] < -360:
             x[2] = x[2]+ 360
         elif x[2] > 360:
             x[2] = x[2]-360
-
+        #観測Z
+        z[0] = L_dist(x,L)
+        z[1] = L_deg(x,L)-x[2]
+        if z[1] < -360:
+            z[1] = z[1]+ 360
+        elif z[1] > 360:
+            z[1] = z[1]-360
+        z   +=  np.random.multivariate_normal([0,0], Q, 1).T
+        Z2.append(z)
+        z[0],z[1]   = z_pos(x,z)
+        Ob.append(o)
         X.append(x)
+        Z.append(z)
         U.append(u)
         J.append(j)
-        Z.append(z)
-        time += 0.01
 
-#    print Z
-    #EKF作成
-    x = np.mat([[0],[0],[0],[0],[0]])
-    sigm = np.mat([[1,0,0,0,0],
-                    [0,1,0,0,0],
-                    [0,0,1,0,0],
-                    [0,0,0,1,0],
-                    [0,0,0,0,1]])
-    R = np.mat([[1,0,0,0,0],
-                [0,1,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0]])
-    omg = np.mat([[1,0,0,0,0],
+    #EKF発動
+    F = np.array([[1,0,0,0,0],
+                  [0,1,0,0,0],
+                  [0,0,1,0,0]])
+    F2 = np.array([[1,0,0,0,0],
+                   [0,1,0,0,0],
+                   [0,0,1,0,0],
+                   [0,0,0,1,0],
+                   [0,0,0,0,1]])
+    I = np.array([[1,0,0,0,0],
                   [0,1,0,0,0],
                   [0,0,1,0,0],
                   [0,0,0,1,0],
                   [0,0,0,0,1]])
-    F   = np.mat([[1,0,0,0,0],
-                  [0,1,0,0,0],
-                  [0,0,1,0,0],
-                  [0,0,0,1,0],
-                  [0,0,0,0,1]])
-    r_m = np.mat([[0.],[0.]])
-    _h = np.mat([[0.],[0.]])
-#    H = np.mat([[0.,0.,0.,0.,0.],[0.,0.,0.,0.,0.]])
-    Q = np.mat([[1,0],
-                [0,1]])
-    inv = np.mat([[1,0],
-                [0,1]])
+    R2 = np.array([[0.01,0,0,0,0],
+                   [0,0.01,0,0,0],
+                   [0,0,0,0,0],
+                   [0,0,0,0,0],
+                   [0,0,0,0,0]])#制御誤差
 
+    mu = np.array([[0],[0],[0],[0],[0]])
+    sigm = np.zeros((5,5))
+    dam = np.zeros((2,2))
+    omg = np.zeros((2,1))
+    z_ = np.zeros((2,1))
+    M = []
+    time = 0
     for i in range(T):
-        _mu = x + U[i]
-        _sigm = J[i]*sigm*J[i].T + np.random.multivariate_normal([0,0,0,0,0], R, 1).T
+        time += 0.1
+        u = np.array([[-r*np.sin(math.radians(mu[2]))+ r*math.sin(math.radians(mu[2] + time*w))],
+                      [r*np.cos(math.radians(mu[2]))- r*np.cos(math.radians(mu[2] + time*w))],
+                      [time*w]
+                      ])
+        mu_ = mu + (F.T).dot(u)
+        u2 = np.array([[0,0,-r*np.cos(math.radians(mu[2]))+ r*math.cos(math.radians(mu[2] + time*w))],
+                      [0,0,-r*np.sin(math.radians(mu[2]))+ r*np.sin(math.radians(mu[2] + time*w))],
+                      [0,0,0]
+                      ])
+        G = I + (F.T).dot(u2.dot(F))
+        sigm_ = G.dot(sigm.dot(G.T)) + (F.T).dot(R.dot(F))
+        dlt = Z2[i]
+        zx  = mu_[0] + (dlt[0]*np.cos(math.radians(dlt[1]+mu_[2])))
+        zy  = mu_[1] + (dlt[0]*np.sin(math.radians(dlt[1]+mu_[2])))
+        omg[0] = zx - mu_[0]
+        omg[1] = zy - mu_[1]
+        q   = (omg.T).dot(omg)
+        z_[0]  = np.sqrt(q)
+        z_[1]  = np.arctan2(omg[1],omg[0])-mu_[2]
+        h   = np.array([[np.sqrt(q)*omg[0], -np.sqrt(q)*omg[1], 0, -np.sqrt(q)*omg[0], np.sqrt(q)*omg[1]],
+                        [omg[1], omg[0], -1, -omg[1], -omg[0]]])
+        H   = (1/q)*h.dot(F2)
+        S   = H.dot(sigm_.dot(H.T)) + Q
+        MAGO1 = S[0].T
+        MAGO2 = S[1].T
+        SS  = np.array([[MAGO1[0], MAGO1[1]],
+                        [MAGO2[0], MAGO2[1]]])
+        D = np.array([[SS[1][1], -SS[0][1]],
+                     [-SS[1][0], -SS[0][0]]])
+        SS = (1/(SS[0][0]*SS[1][1]))*D
+        dam[0][0] = SS[0][0]
+        dam[0][1] = SS[0][1]
+        dam[1][0] = SS[1][0]
+        dam[1][1] = SS[1][1]
+#        SS  = reverse(SS)
+        K   = sigm_.dot((H.T).dot(dam))
+        mu  = mu_ + K.dot(dlt - z)
+        sigm = (I-K.dot(H)).dot(sigm_)
+        M.append(mu)
 
-        r_m[0] = Z[i][0] *np.cos(Z[i][1]+_mu[2])
-        r_m[1] = Z[i][0] *np.sin(Z[i][1]+_mu[2])
-        omg = Z[i]-r_m
-        q   = omg.T*omg
-#        _h[0]= np.sqrt(q)
-#        _h[1]= np.arctan2(omg[1],omg[0])-_mu[2]
-        H = np.mat([[-1*np.sqrt(q)*omg[0]/q, -1*np.sqrt(q)*omg[1]/q, 0 , np.sqrt(q)*omg[0]/q, np.sqrt(q)*omg[1]/q],
-                    [omg[1]/q, -1*omg[0]/q, -q/q, -omg[1]/q, omg[0]/q]
-                    ])
-        Hh = H*F
-        S = Hh*_sigm*Hh.T + Q
-        K  = _sigm*Hh.T
-        
-        _mu_l = _mu
-
-
-
-
-    a,b,c,d,e = np.array(np.concatenate(X,axis=1))
-    plt.plot(L[0], L[1], 'bo')#ランドマーク
-
-    plt.plot(a,b, 'r-')
+    plt.plot(L[0],L[1],'ko')
+    ra,rb,rc = np.array(np.concatenate(X,axis=1))
+    plt.plot(ra,rb,'r-',label='Real_Path')
+#    a,b,c = np.array(np.concatenate(Ob,axis=1))
+#    plt.plot(a,b,'b-',label='Ideal_Path')
+    za,zb = np.array(np.concatenate(Z,axis=1))
+    plt.plot(za,zb,'go-',label='Obseve_Path')
+    ea,eb,ec,ed,ee = np.array(np.concatenate(M,axis=1))
+    plt.plot(ea,eb,'y-',label='EKF_Path')
+    plt.legend(loc='lower right')
     plt.show()
 
-if __name__ == '__main__':
+if __name__=='__main__':
     main()
