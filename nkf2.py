@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 import seaborn
 from numpy import linalg as la
 import math
+import random
 
 def L_dist(x,L):
     return np.sqrt( (x[0]-L[0])**2 + (x[1]-L[1])**2 )
 def L_deg(x,L):
-    return np.degrees(np.arctan2((x[1]-L[1]),(x[0]-L[0])))
+    return np.degrees(np.arctan2((x[1]-L[1]),(x[0]-L[0])))-x[2]
 def z_pos(x,z):
     return x[0]+z[0]*np.cos(np.radians(x[2]-z[1])), x[1]+z[0]*np.sin(np.radians(x[2]-z[1]))
 def reverse(X):
@@ -21,11 +22,9 @@ def main():
     x = np.array([[0],[0],[0]])#状態(x,y,deg)
     L = np.array([[0],[10]])#ランドマーク位置(x,y)
     z = np.array([[0.],[0.]])#ランドマーク観測値(r,deg)
-    z2 = np.array([[0.],[0.]])#ランドマーク観測値(r,deg)
 
     v = 20#速度
     w = 2#角速度
-    r = v/w
     T = 50#観測数
     time = 0
     #各種パラメータ保存リスト
@@ -35,6 +34,7 @@ def main():
     Z  = []
     Z2 = []
     J  = []
+    W  = []
 
     R = np.array([[0.01,0,0],[0,0.01,0],[0,0,0] ])#制御誤差
     o = x
@@ -43,6 +43,11 @@ def main():
 
     #観測値取得
     for i in range(T):
+#        w = random.uniform(-5,5)
+        if w == 0:
+            w = 0.00001
+        r = v/w
+        W.append(w)
         time += 0.1
         #状態X
         u = np.array([[-1*r*np.sin(math.radians(x[2]))+ r*math.sin(np.radians(x[2] + time*w))],
@@ -61,7 +66,7 @@ def main():
             x[2] = x[2]-360
         #観測Z
         z[0] = L_dist(x,L)
-        z[1] = L_deg(x,L)-x[2]
+        z[1] = L_deg(x,L)#-x[2]
         if z[1] < -360:
             z[1] = z[1]+ 360
         elif z[1] > 360:
@@ -69,12 +74,22 @@ def main():
         z   +=  np.random.multivariate_normal([0,0], Q, 1).T
 #        print z
         Z2.append(z)
-        z2[0],z2[1]   = z_pos(x,z)
+
+        print "x**************"
+        print x
+        print "z**************"
+        print z
+
+        fa,fb   = z_pos(x,z)
+        z2 = np.array([[fa],[fb]])#ランドマーク観測値(r,deg)
+        print "z2**************"
+        print z2
         Ob.append(o)
         X.append(x)
         Z.append(z2)
         U.append(u)
         J.append(j)
+
     #EKF発動
     F = np.array([[1,0,0,0,0],
                   [0,1,0,0,0],
@@ -104,13 +119,14 @@ def main():
     time = 0
     for i in range(T):
         time += 0.1
-        u = np.array([[-r*np.sin(math.radians(mu[2]))+ r*math.sin(math.radians(mu[2] + time*w))],
-                      [r*np.cos(math.radians(mu[2]))- r*np.cos(math.radians(mu[2] + time*w))],
-                      [time*w]
+        r = v/W[i]
+        u = np.array([[-r*np.sin(math.radians(mu[2]))+ r*math.sin(math.radians(mu[2] + time*W[i]))],
+                      [r*np.cos(math.radians(mu[2]))- r*np.cos(math.radians(mu[2] + time*W[i]))],
+                      [time*W[i]]
                       ])
         mu_ = mu + (F.T).dot(u)
-        u2 = np.array([[0,0,-r*np.cos(math.radians(mu[2]))+ r*math.cos(math.radians(mu[2] + time*w))],
-                      [0,0,-r*np.sin(math.radians(mu[2]))+ r*np.sin(math.radians(mu[2] + time*w))],
+        u2 = np.array([[0,0,-r*np.cos(math.radians(mu[2]))+ r*math.cos(math.radians(mu[2] + time*W[i]))],
+                      [0,0,-r*np.sin(math.radians(mu[2]))+ r*np.sin(math.radians(mu[2] + time*W[i]))],
                       [0,0,0]
                       ])
         G = I + (F.T).dot(u2.dot(F))
@@ -123,9 +139,10 @@ def main():
         q   = (omg.T).dot(omg)
         z_[0]  = np.sqrt(q)
         z_[1]  = math.degrees(np.arctan2(omg[1],omg[0]))-mu_[2]
-        print math.degrees(np.arctan2(omg[1],omg[0]))
-        print mu_[2]
-        print
+        if z[1] < -360:
+            z[1] = z[1]+ 360
+        elif z[1] > 360:
+            z[1] = z[1]-360
         h   = np.array([[np.sqrt(q)*omg[0], -np.sqrt(q)*omg[1], 0, -np.sqrt(q)*omg[0], np.sqrt(q)*omg[1]],
                         [omg[1], omg[0], -1, -omg[1], -omg[0]]])
         H   = (1/q)*h.dot(F2)
@@ -144,8 +161,11 @@ def main():
 #        SS  = reverse(SS)
         K   = sigm_.dot((H.T).dot(dam))
         mu  = mu_ + K.dot(dlt - z_)
-#        print z_
-
+#        print K
+        if mu[2] < -360:
+            mu[2] = mu[2]+ 360
+        elif mu[2] > 360:
+            mu[2] = mu[2]-360
         sigm = (I-K.dot(H)).dot(sigm_)
         M.append(mu)
 
@@ -155,7 +175,8 @@ def main():
 #    a,b,c = np.array(np.concatenate(Ob,axis=1))
 #    plt.plot(a,b,'b-',label='Ideal_Path')
     za,zb = np.array(np.concatenate(Z,axis=1))
-    plt.plot(za,zb,'go-',label='Obseve_Path')
+#    print za
+    plt.plot(za,zb,'g-',label='Obseve_Path')
     ea,eb,ec,ed,ee = np.array(np.concatenate(M,axis=1))
     plt.plot(ea,eb,'y-',label='EKF_Path')
     plt.legend(loc='lower right')
