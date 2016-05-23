@@ -48,7 +48,7 @@ def main():
     U = [u]#制御
 
     for i in range(T):
-        x = A*x + B*u + np.random.multivariate_normal([0,0], R, 1).T
+        x = A*x + B*u #+ np.random.multivariate_normal([0,0], R, 1).T
         X.append(x)
         y = C*x + np.random.multivariate_normal([0,0], Q, 1).T
         Y.append(y)
@@ -69,8 +69,8 @@ def main():
     plt.figtext(0.15,0.8, "Sensor sigm : %f"%(sum((a-a2)**2 + (b-b2)**2)/100))
     plt.figtext(0.15,0.7, "Kalman sigm : %f"%(sum((a-a3)**2 + (b-b3)**2)/100))
 
-    print sum((a-a2)**2 + (b-b2)**2)/100
-    print
+#    print sum((a-a2)**2 + (b-b2)**2)/100
+#    print
 
     plt.show()
 

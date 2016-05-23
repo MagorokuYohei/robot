@@ -41,7 +41,7 @@ def main():
     T = 10
 
     for i in range(T):
-        x = A*x + B*u + np.random.multivariate_normal([0,0], R, 1).T
+        x = A*x + B*u #+ np.random.multivariate_normal([0,0], R, 1).T
         X.append(x)
         z = C*x + np.random.multivariate_normal([0,0], Q, 1).T
         Z.append(z)
